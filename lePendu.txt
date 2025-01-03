@@ -1,0 +1,4 @@
+choix du mot a faire deviner
+pas a pas potence(img)
+nbr erreur autorisées
+algorithme pendu

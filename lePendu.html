@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Le Pendu by Angie</title>
+    <style>
+        .imgPendu img {
+            max-width: 100%;
+            height: auto;
+        }
+        .side-image {
+            max-width: 300px; 
+            height: auto;
+        }
+        .side2-image {
+            max-width: 400px; 
+            height: 300px;
+            margin-top: 55px;
+        }
+        .bottom-image {
+            max-width: 450px; 
+            height: auto;
+            position: fixed;
+            bottom: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body class="bg-secondary">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Qui sera le prochain pendu ?</h1>
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <img src="img/coffre.png" alt="bateau de pirate" class="side2-image rounded float-start">
+            </div>
+            <div class="col-md-8 text-center">
+                <div class="imgPendu mb-4">
+                    <img id="penduImage" src="img/pendu7.png" alt="Pendu Image" class="img-fluid">
+                </div>
+                <p id="resultat" class="mb-4"></p>
+                <div class="mb-4">
+                    <button id="debuterlejeu" class="btn btn-primary me-2">Commencer le jeu</button>
+                    <button id="recommencer" class="btn btn-secondary">Recommencer</button>
+                </div>
+                <p id="depart" class="mb-4"></p>
+                <p id="erreur" class="mb-4"></p>
+                <p id="lettresUtilisees" class="mb-4"></p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="img/pirate.png" alt="dessin d'un pirate" class="side-image rounded float-end">
+            </div>
+        </div>
+    </div>
+    <img src="img/bateau.png" alt="dessin d'un bateau" class="bottom-image rounded">
+    <script src="lePendu.js"></script>
+</body>
+</html>
+
+
+<!-- Version 1.0 auteur : AngelCode -->
