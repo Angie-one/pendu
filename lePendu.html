@@ -8,53 +8,44 @@
     <style>
         .imgPendu img {
             max-width: 100%;
-            height: auto;
+            height: 150px;
         }
-        .side-image {
-            max-width: 300px; 
-            height: auto;
+    body {
+        background-image: url(/img/piratebg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }   
+    .large-text {
+            font-size: 4em; /* Vous pouvez ajuster cette valeur selon vos besoins */
         }
-        .side2-image {
-            max-width: 400px; 
-            height: 300px;
-            margin-top: 55px;
-        }
-        .bottom-image {
-            max-width: 450px; 
-            height: auto;
-            position: fixed;
-            bottom: 20px; 
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    h1 {
+        font-size: 60px;
+    }
+   
     </style>
 </head>
-<body class="bg-secondary">
+<body >
+    
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Qui sera le prochain pendu ?</h1>
-        <div class="row">
-            <div class="col-md-2 text-center">
-                <img src="img/coffre.png" alt="bateau de pirate" class="side2-image rounded float-start">
-            </div>
+        <h1 class="text-center mb-4 text-white">Qui sera le prochain pendu ?</h1>
+        <div class="row justify-content-center">
             <div class="col-md-8 text-center">
                 <div class="imgPendu mb-4">
                     <img id="penduImage" src="img/pendu7.png" alt="Pendu Image" class="img-fluid">
                 </div>
-                <p id="resultat" class="mb-4"></p>
+                <p id="resultat" class="mb-4 large-text"></p>
                 <div class="mb-4">
                     <button id="debuterlejeu" class="btn btn-primary me-2">Commencer le jeu</button>
                     <button id="recommencer" class="btn btn-secondary">Recommencer</button>
                 </div>
-                <p id="depart" class="mb-4"></p>
-                <p id="erreur" class="mb-4"></p>
-                <p id="lettresUtilisees" class="mb-4"></p>
+                <p id="depart" class="mb-4 text-white large-text"></p>
+                <p id="erreur" class="mb-4 text-white large-text"></p>
+                <p id="lettresUtilisees" class="mb-4 text-white large-text"></p>
             </div>
-            <div class="col-md-2 text-center">
-                <img src="img/pirate.png" alt="dessin d'un pirate" class="side-image rounded float-end">
-            </div>
+           
         </div>
     </div>
-    <img src="img/bateau.png" alt="dessin d'un bateau" class="bottom-image rounded">
+
     <script src="lePendu.js"></script>
 </body>
 </html>
