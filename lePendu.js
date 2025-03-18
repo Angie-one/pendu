@@ -73,7 +73,7 @@ function choisirlettres () {
             motFini = true;
         }
         //affichage des lettres utilisées
-        document.getElementById("lettresUtilisees").innerHTML = `Lettres utilisées : ${Array.from(lettresUtilisees).join(", ")}`;
+        document.getElementById("lettresUtilisees").innerHTML = `Lettres utilisées : ${Array.from(lettresUtilisees).join(" - ")}`;
       });
     
 }
