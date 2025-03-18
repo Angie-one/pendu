@@ -12,11 +12,11 @@ let motFini = false;//variable pour finir le mot et recommencer
 function choisirMots () {
     const motAleatoire = Math.floor(Math.random() * wordsArray.length);
     motChoisi = wordsArray[motAleatoire];
-    console.log(motChoisi)
+    
     motCachee = motChoisi
         .split("")
         .map(() => "-");
-        console.log(motCachee)  
+         
         document.getElementById("depart").innerHTML = motCachee;
         document.getElementById("erreur").innerHTML = `Erreurs restantes : ${erreursAutorisees}`;
         document.getElementById("penduImage").src = `img/pendu${erreursAutorisees}.png`;
@@ -32,10 +32,10 @@ function choisirlettres () {
     document.addEventListener('keypress', function(event) {
         if (motFini) return; // Si le jeu est terminé, ne pas continuer
         const key = String.fromCharCode(event.charCode).toLowerCase();
-        console.log(`La lettre saisie est : ${key}`);
+        
         //condition pour afficher la lettre si pas la bonne
         if (lettresUtilisees.has(key)) {
-            console.log(`La lettre ${key} a déjà été utilisée.`);
+            
             return;
         }
 
@@ -52,14 +52,14 @@ function choisirlettres () {
         }//mise a jour du mot si lettre trouvee
             if(lettreTrouvee) {
                 document.getElementById("depart").innerHTML = motCachee.join("");//affiche la lettre ds le mot
-            console.log(`mot actuel : ${motCachee.join("")}`);
+            
         } else {
             //la lettre n'est pas ds le mot
             if (erreursAutorisees > 0) {
             erreursAutorisees--;
             document.getElementById("erreur").innerHTML = `erreurs restantes : ${erreursAutorisees}`;
             document.getElementById("penduImage").src= `img/pendu${erreursAutorisees}.png`;
-            console.log(`erreurs restantes : ${erreursAutorisees}`);
+            
             }
             //verif vie restante
             if (erreursAutorisees === 0) {
