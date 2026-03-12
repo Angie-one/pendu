@@ -29,53 +29,49 @@ function choisirMots () {
 
 //fonction pour entrer les lettres et compter les erreurs
 function choisirlettres () {
-    document.addEventListener('keypress', function(event) {
-        if (motFini) return; // Si le jeu est terminé, ne pas continuer
-        const key = String.fromCharCode(event.charCode).toLowerCase();
+    const hiddenInput = document.getElementById("mobileInput");
+    hiddenInput.focus(); // Ouvre le clavier sur tel
+
+    
+    hiddenInput.addEventListener('input', function(event) {
+        if (motFini) return;
         
-        //condition pour afficher la lettre si pas la bonne
-        if (lettresUtilisees.has(key)) {
-            
-            return;
-        }
+        
+        const key = event.target.value.toLowerCase().slice(-1);
+        event.target.value = ""; 
+
+        if (lettresUtilisees.has(key) || !key.match(/[a-z]/)) return;
 
         lettresUtilisees.add(key);
 
-//verif lettre existe ds le mot
+        
         let lettreTrouvee = false;
         for(let i =0; i<motChoisi.length; i++) {
             if (motChoisi[i] === key ) {
-                    motCachee[i] = key; //remplace le tiret par la lettre
+                    motCachee[i] = key; 
                     lettreTrouvee = true;
-            
             }
-        }//mise a jour du mot si lettre trouvee
-            if(lettreTrouvee) {
-                document.getElementById("depart").innerHTML = motCachee.join("");//affiche la lettre ds le mot
-            
+        }
+        
+        if(lettreTrouvee) {
+                document.getElementById("depart").innerHTML = motCachee.join(""); 
         } else {
-            //la lettre n'est pas ds le mot
             if (erreursAutorisees > 0) {
             erreursAutorisees--;
             document.getElementById("erreur").innerHTML = `erreurs restantes : ${erreursAutorisees}`;
             document.getElementById("penduImage").src= `img/pendu${erreursAutorisees}.png`;
-            
             }
-            //verif vie restante
             if (erreursAutorisees === 0) {
                 document.getElementById("resultat").innerHTML = `<div class="alert alert-danger" role="alert">Game Over! le mot choisi était ${motChoisi}. Vous êtes PENDU!!`
                 motFini = true;
             }
         }
-        // Vérifie si le mot est complètement révélé
         if (!motCachee.includes("-")) {
             document.getElementById("resultat").innerHTML = `<div class="alert alert-success" role="alert">Félicitations! Vous avez deviné le mot ${motChoisi}. Vous êtes sauvé(e)!!`;
             motFini = true;
         }
-        //affichage des lettres utilisées
         document.getElementById("lettresUtilisees").innerHTML = `Lettres utilisées : ${Array.from(lettresUtilisees).join(" - ")}`;
-      });
-    
+    });
 }
 
 // Commencer le jeu
